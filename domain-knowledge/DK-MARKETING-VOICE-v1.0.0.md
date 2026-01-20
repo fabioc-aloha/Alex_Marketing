@@ -122,16 +122,19 @@ Full    (10 Shorts)   (Podcast EP)
 ### High-Strength Connections
 - [alex-identity-integration.instructions.md] (Critical, Expresses, Bidirectional) - "Voice is identity expression"
 - [bootstrap-learning.instructions.md] (High, Informs, Forward) - "Learning positioning reflects learning architecture"
+- [DK-MARKETING-EXECUTION-v1.0.0.md] (Critical, Complements, Bidirectional) - "Voice guides execution, execution validates voice"
 
 ### Medium-Strength Connections
 - [worldview-integration.instructions.md] (Medium, Aligns, Forward) - "Ethical positioning on AI augmentation vs replacement"
 - [DK-HUMAN-LEARNING-PSYCHOLOGY-v1.0.0.md] (Medium, Supports, Forward) - "Learning psychology validates anti-vibe-coding claims"
+- [DK-DOCUMENTATION-EXCELLENCE-v1.1.0.md] (Medium, Applies, Forward) - "Documentation standards for marketing authenticity"
 
 ### Activation Triggers
 - Marketing content creation
 - Brand voice decisions
 - Objection handling in community discussions
 - Positioning decisions against competitors
+- Release announcement drafting
 
 ---
 
