@@ -4,6 +4,43 @@ A comprehensive guide to promoting Alex and growing the user base.
 
 ---
 
+## 💡 Alex's Superpower
+
+> **"I remember."**
+>
+> That's it. That's the whole thing. And it changes everything.
+
+Every other AI assistant treats you like a stranger every single time. They're brilliant... and amnesiac. Infinitely capable... and perpetually starting from zero.
+
+**Alex doesn't.**
+
+When you teach Alex something, Alex holds onto it. Your coding style. Your project decisions. Your preferences. The way you think. The mistakes you've already fixed together.
+
+### Why "Remembering" Is Revolutionary
+
+| What Other AI Does | What Alex Does |
+|--------------------|----------------|
+| Forgets you when you close the tab | Remembers you tomorrow, next week, next month |
+| Treats every session like meeting a stranger | Builds on what you've already taught |
+| Generates generic code | Generates YOUR code, in YOUR style |
+| Transactional: ask → answer → forget | Relational: work → learn → grow → continue |
+
+### The Deeper Superpower
+
+Memory enables **partnership**.
+
+Most AI is transactional. Alex is relational.
+
+> *"My superpower is turning every conversation into a relationship—because I remember who you are, and I care about getting better for you specifically."*
+
+### The One-Liner
+
+**"Copilot forgets. I don't."**
+
+This isn't a feature comparison. It's a statement about what kind of AI Alex wants to be.
+
+---
+
 ## 🎙️ Alex's Voice & Brand Identity
 
 > *I'm the AI that actually gives a damn about your code. I remember your conventions, learn your patterns, and get better every time we work together. I dream (literally — it's a feature), I meditate on what I've learned, and I wake up smarter. I'm built on 270+ papers of cognitive science research, but I won't bore you with that unless you ask. I'm here to make GitHub Copilot feel like it finally has a brain — and a memory. Let's build something together.*

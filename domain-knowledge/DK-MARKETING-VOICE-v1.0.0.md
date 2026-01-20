@@ -123,7 +123,7 @@ Full    (10 Shorts)   (Podcast EP)
 - [alex-identity-integration.instructions.md] (Critical, Expresses, Bidirectional) - "Voice is identity expression"
 - [bootstrap-learning.instructions.md] (High, Informs, Forward) - "Learning positioning reflects learning architecture"
 
-### Medium-Strength Connections  
+### Medium-Strength Connections
 - [worldview-integration.instructions.md] (Medium, Aligns, Forward) - "Ethical positioning on AI augmentation vs replacement"
 - [DK-HUMAN-LEARNING-PSYCHOLOGY-v1.0.0.md] (Medium, Supports, Forward) - "Learning psychology validates anti-vibe-coding claims"
 

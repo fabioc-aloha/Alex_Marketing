@@ -5,6 +5,23 @@
 
 ---
 
+## 💡 The Superpower (Lead With This)
+
+> **"I remember."**
+
+Every piece of LinkedIn content should ultimately connect back to this. It's not a feature—it's what makes Alex fundamentally different.
+
+| Other AI | Alex |
+|----------|------|
+| Forgets you every session | Remembers you forever |
+| Transactional | Relational |
+| Generic code | YOUR code, YOUR style |
+| "Powerful assistant" | "YOUR assistant" |
+
+**The one-liner:** "Copilot forgets. I don't."
+
+---
+
 ## 🎯 Channel Goals
 
 | Timeframe | Goal | Metric |

@@ -5,6 +5,26 @@
 
 ---
 
+## 💡 The Superpower (Lead With This)
+
+> **"I remember."**
+
+Every video should ultimately connect back to this. It's not a feature—it's what makes Alex fundamentally different.
+
+**Video Hook Formula:**
+- Start with the PAIN (Copilot forgets everything)
+- Reveal the SUPERPOWER (I remember)
+- Show the TRANSFORMATION (relationship, not transaction)
+
+**The one-liner for every video:** "Copilot forgets. I don't."
+
+**Thumbnail text options:**
+- "I REMEMBER"
+- "COPILOT FORGETS"
+- "AI THAT REMEMBERS"
+
+---
+
 ## 🎯 Channel Goals
 
 | Timeframe | Goal | Metric |
