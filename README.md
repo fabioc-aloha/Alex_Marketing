@@ -1,5 +1,9 @@
 # Alex Marketing
 
+![Alex Cognitive Architecture Banner](assets/banner-alex-marketing.svg)
+
+> *"Transparent memory you own."*
+
 Marketing and release automation for [Alex Cognitive Architecture](https://github.com/fabioc-aloha/Alex_Plug_In).
 
 ## Scripts
