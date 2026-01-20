@@ -1,0 +1,5 @@
+# Alex Announcement Script Dependencies
+praw>=7.7.0          # Reddit API
+python-dotenv>=1.0.0 # Environment variables
+requests>=2.31.0     # HTTP requests (Dev.to, Discord)
+tweepy>=4.14.0       # Twitter/X API

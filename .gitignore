@@ -1,0 +1,19 @@
+# Environment files with secrets
+.env
+scripts/.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.class
+.Python
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
