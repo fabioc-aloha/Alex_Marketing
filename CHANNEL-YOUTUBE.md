@@ -134,25 +134,25 @@ gantt
 ```mermaid
 flowchart TD
     DOC[📄 One Document<br/>README or Feature Doc]
-    
+
     DOC --> GAMMA[🎨 Gamma<br/>Slides + Animation]
     DOC --> NOTEBOOK[🎙️ NotebookLM<br/>AI Podcast Audio]
     DOC --> SCRIPT[📝 Script Extract<br/>Key talking points]
-    
+
     GAMMA --> FULLVID[🎬 Full Video<br/>10-15 minutes]
     NOTEBOOK --> PODCAST[🎧 Podcast Clip<br/>Audio content]
     SCRIPT --> SCREEN[🖥️ Screen Recording<br/>OBS demo]
-    
+
     SCREEN --> FULLVID
-    
+
     FULLVID --> OPUS[✂️ Opus Clip]
-    
+
     OPUS --> SHORT1[📱 Short #1<br/>Hook moment]
     OPUS --> SHORT2[📱 Short #2<br/>Demo highlight]
     OPUS --> SHORT3[📱 Short #3<br/>Problem/Solution]
-    
+
     PODCAST --> AUDIOGRAM[🎵 Audiogram<br/>For LinkedIn]
-    
+
     style DOC fill:#e3f2fd
     style FULLVID fill:#c8e6c9
     style SHORT1 fill:#fff9c4
