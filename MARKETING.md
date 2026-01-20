@@ -52,6 +52,8 @@ Let's be real: ChatGPT and Copilot now have memory features too. So what makes A
 | **Technical** | "Git-versioned cognitive architecture." |
 | **Original** | "Copilot forgets. I don't." (still works for general awareness) |
 
+> 📊 **See [COMPETITIVE-ANALYSIS.md](COMPETITIVE-ANALYSIS.md)** for full competitor breakdown, battleground analysis, and positioning strategies.
+
 ---
 
 ## 🎙️ Alex's Voice & Brand Identity
