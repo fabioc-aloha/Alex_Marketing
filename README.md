@@ -55,7 +55,7 @@ python release.py --bump patch
 
 One command does everything:
 
-```bbash
+```bash
 python release.py --bump patch
 ```
 
