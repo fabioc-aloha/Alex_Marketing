@@ -7,21 +7,38 @@
 
 ## 💡 The Superpower (Lead With This)
 
-> **"I remember."**
+> **"I remember—and you can see exactly what I remember, edit it, and take it with you."**
 
-Every video should ultimately connect back to this. It's not a feature—it's what makes Alex fundamentally different.
+### The Honest Position
 
-**Video Hook Formula:**
-- Start with the PAIN (Copilot forgets everything)
-- Reveal the SUPERPOWER (I remember)
-- Show the TRANSFORMATION (relationship, not transaction)
+Yes, ChatGPT and Copilot now have memory. Here's why Alex is still different:
 
-**The one-liner for every video:** "Copilot forgets. I don't."
+| Their Memory | Alex's Memory |
+|--------------|---------------|
+| Black box in their cloud | Markdown files in YOUR repo |
+| Can't see what they "know" | Can read every memory file |
+| Can't edit their memories | Full control to edit anything |
+| Stuck in their platform | Travels with your project |
+| They own it | YOU own it |
 
-**Thumbnail text options:**
-- "I REMEMBER"
-- "COPILOT FORGETS"
-- "AI THAT REMEMBERS"
+**Video Hook Formula (Updated):**
+- Start with the OBJECTION ("But ChatGPT has memory now too...")
+- Reveal the DIFFERENCE ("Can you see what it remembers? Can you edit it? Can you take it with you?")
+- Show the SUPERPOWER (Transparent, owned, portable memory)
+
+**The refined one-liners:**
+- "Transparent memory you own."
+- "Their memory is a black box. Mine is a markdown file."
+- "Your AI's memory shouldn't live in someone else's cloud."
+
+**For general awareness:** "Copilot forgets. I don't."
+
+**Thumbnail text options (updated):**
+- "YOUR MEMORY, NOT THEIRS"
+- "TRANSPARENT AI MEMORY"
+- "BLACK BOX vs MARKDOWN"
+- "I REMEMBER" (still works)
+- "MEMORY YOU OWN"
 
 ---
 

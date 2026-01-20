@@ -7,18 +7,27 @@
 
 ## 💡 The Superpower (Lead With This)
 
-> **"I remember."**
+> **"I remember—and you can see exactly what I remember, edit it, and take it with you."**
 
-Every piece of LinkedIn content should ultimately connect back to this. It's not a feature—it's what makes Alex fundamentally different.
+### The Honest Position
 
-| Other AI | Alex |
-|----------|------|
-| Forgets you every session | Remembers you forever |
-| Transactional | Relational |
-| Generic code | YOUR code, YOUR style |
-| "Powerful assistant" | "YOUR assistant" |
+Yes, ChatGPT and Copilot now have memory. Here's why Alex is still different:
 
-**The one-liner:** "Copilot forgets. I don't."
+| Their Memory | Alex's Memory |
+|--------------|---------------|
+| Black box in their cloud | Markdown files in YOUR repo |
+| Can't see what they "know" | Can read every memory file |
+| Can't edit their memories | Full control to edit anything |
+| Stuck in their platform | Travels with your project |
+| They own it | YOU own it |
+| No version history | Git tracks your AI's learning |
+
+**The refined one-liners:**
+- "Transparent memory you own."
+- "Their memory is a black box. Mine is a markdown file."
+- "Your AI's memory shouldn't live in someone else's cloud."
+
+**For general awareness (still works):** "Copilot forgets. I don't."
 
 ---
 
