@@ -304,30 +304,52 @@ mindmap
 ### Visual: High-Level Journey
 
 ```mermaid
-journey
-    title Developer Journey to Alex Adoption
-    section Discovery
-      See post/video about Alex: 3: Developer
-      Initial skepticism (another AI tool?): 2: Developer
-      Notice "transparent memory" hook: 4: Developer
-    section Evaluation
-      Visit marketplace page: 4: Developer
-      Read reviews and docs: 3: Developer
-      Watch demo video: 5: Developer
-      Try free installation: 4: Developer
-    section First Use
-      Install and setup: 3: Developer
-      Run first meditation: 4: Developer
-      See memory files created: 5: Developer
-      "Aha!" moment: 5: Developer
-    section Adoption
-      Use daily for a week: 4: Developer
-      Notice Alex remembering patterns: 5: Developer
-      Customize memory files: 5: Developer
-    section Advocacy
-      Share with colleague: 4: Developer
-      Write review or post: 3: Developer
-      Contribute to repo: 2: Developer
+flowchart TD
+    subgraph DISCOVERY["🔍 DISCOVERY"]
+        D1["See post/video about Alex<br/>😐 Neutral"]
+        D2["Initial skepticism<br/>😕 Another AI tool?"]
+        D3["Notice 'transparent memory' hook<br/>🤔 Intrigued"]
+    end
+    
+    subgraph EVALUATION["🔬 EVALUATION"]
+        E1["Visit marketplace page<br/>🤔 Checking it out"]
+        E2["Read reviews and docs<br/>😐 Researching"]
+        E3["Watch demo video<br/>😊 This looks good"]
+        E4["Try free installation<br/>🤔 Let's see"]
+    end
+    
+    subgraph FIRSTUSE["⚡ FIRST USE"]
+        F1["Install and setup<br/>😐 A bit of work"]
+        F2["Run first meditation<br/>🤔 Interesting"]
+        F3["See memory files created<br/>😲 Whoa!"]
+        F4["'Aha!' moment<br/>😊 I get it now!"]
+    end
+    
+    subgraph ADOPTION["✅ ADOPTION"]
+        A1["Use daily for a week<br/>🤔 Building habit"]
+        A2["Notice Alex remembering<br/>😊 It actually works!"]
+        A3["Customize memory files<br/>😊 Making it mine"]
+    end
+    
+    subgraph ADVOCACY["📣 ADVOCACY"]
+        V1["Share with colleague<br/>🤔 They might like this"]
+        V2["Write review or post<br/>😊 Worth sharing"]
+        V3["Contribute to repo<br/>😊 Part of community"]
+    end
+    
+    D1 --> D2 --> D3
+    D3 --> E1 --> E2 --> E3 --> E4
+    E4 --> F1 --> F2 --> F3 --> F4
+    F4 --> A1 --> A2 --> A3
+    A3 --> V1 --> V2 --> V3
+    
+    style DISCOVERY fill:#ffebee
+    style EVALUATION fill:#fff3e0
+    style FIRSTUSE fill:#e8f5e9
+    style ADOPTION fill:#e3f2fd
+    style ADVOCACY fill:#f3e5f5
+    style F3 fill:#c8e6c9
+    style F4 fill:#c8e6c9
 ```
 
 ---

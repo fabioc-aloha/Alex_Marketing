@@ -84,7 +84,7 @@ flowchart TD
         F5[Community Support]
         F6[Open Source Access]
     end
-    
+
     subgraph PRO["⭐ Pro Tier ($9/month)"]
         P1[Everything in Free]
         P2[Advanced Dream Analytics]
@@ -93,7 +93,7 @@ flowchart TD
         P5[Custom Memory Templates]
         P6[Email Support]
     end
-    
+
     subgraph TEAM["👥 Team Tier ($29/month per seat)"]
         T1[Everything in Pro]
         T2[Shared Memory Conventions]
@@ -102,7 +102,7 @@ flowchart TD
         T5[Onboarding Toolkit]
         T6[Slack Support]
     end
-    
+
     subgraph ENTERPRISE["🏢 Enterprise (Custom)"]
         E1[Everything in Team]
         E2[SSO Integration]
@@ -111,9 +111,9 @@ flowchart TD
         E5[Dedicated Support]
         E6[On-prem Option]
     end
-    
+
     FREE --> PRO --> TEAM --> ENTERPRISE
-    
+
     style FREE fill:#e8f5e9
     style PRO fill:#fff9c4
     style TEAM fill:#e3f2fd
@@ -150,14 +150,14 @@ flowchart LR
         T3["🚀 $50/mo<br/>Champion"]
         T4["💎 $200/mo<br/>Partner"]
     end
-    
+
     subgraph PERKS["Sponsor Perks"]
         P1[Name in README]
         P2[Early Feature Access]
         P3[Monthly Office Hours]
         P4[Logo + Advisory Input]
     end
-    
+
     T1 --> P1
     T2 --> P1
     T2 --> P2
@@ -206,14 +206,14 @@ flowchart TD
         C5[Module 5: Team Implementation]
         C6[Bonus: Research Paper Breakdown]
     end
-    
+
     subgraph BUNDLE["Course + Coaching - $499"]
         B1[Full Course Access]
         B2[3x 1:1 Sessions with Fabio]
         B3[Code Review]
         B4[Implementation Support]
     end
-    
+
     COURSE --> BUNDLE
 ```
 
@@ -250,13 +250,13 @@ flowchart LR
         S3["👥 Team Training<br/>$3,000"]
         S4["🎯 Custom Development<br/>$150/hr"]
     end
-    
+
     subgraph DELIVERY["Delivery"]
         D1[Remote Sessions]
         D2[Documentation]
         D3[Follow-up Support]
     end
-    
+
     S1 --> D1
     S2 --> D2
     S3 --> D1
@@ -300,20 +300,20 @@ flowchart TD
         E5[Custom Memory Policies]
         E6[On-Premise Option]
     end
-    
+
     subgraph SUPPORT["Enterprise Support"]
         S1[Dedicated CSM]
         S2[SLA Guarantees]
         S3[24/7 Support Option]
         S4[Quarterly Business Reviews]
     end
-    
+
     subgraph PRICING["Pricing Model"]
         P1["Base: $500/mo<br/>(up to 50 seats)"]
         P2["Scale: $1,500/mo<br/>(up to 200 seats)"]
         P3["Unlimited: Custom<br/>(200+ seats)"]
     end
-    
+
     ENTERPRISE --> SUPPORT --> PRICING
 ```
 
@@ -349,7 +349,7 @@ flowchart TD
         N5[Dark Patterns]
         N6[Bait and Switch]
     end
-    
+
     style NEVER fill:#ffcdd2
 ```
 
