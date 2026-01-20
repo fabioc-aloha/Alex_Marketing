@@ -213,7 +213,53 @@ MARKETING.md (Master Plan)
 - **Daily**: Social engagement, support requests
 - **Weekly**: Install trends, content performance
 - **Monthly**: Full metrics review, strategy adjustment
-- **Quarterly**: Brand audit, competitive analysis refresh
+- **Quarterly**: Brand audit, competitive analysis refresh, repository housekeeping
+
+---
+
+## Repository Organization Framework
+
+### Separation Principle
+Marketing repositories should clearly separate:
+
+| Folder | Purpose | Contents |
+|--------|---------|----------|
+| **Root** | Marketing-specific docs | Strategy, channels, analysis |
+| `domain-knowledge/` | Marketing DK files | Voice, execution frameworks |
+| `extension-build/` | Extension source | Code, core architecture DK |
+| `assets/` | Brand assets | SVGs, images, thumbnails |
+| `scripts/` | Automation | Python release scripts |
+
+### Housekeeping Cadence
+- **Per Session**: Commit related changes together
+- **Weekly**: Check for orphaned/temp files
+- **Monthly**: Audit for duplicates, run `git gc`
+- **Quarterly**: Review folder structure, archive stale content
+
+### Key Insight
+> "Repository structure IS documentation. A clean folder hierarchy communicates project organization without a single word of explanation."
+
+---
+
+## Visual Documentation Strategy
+
+### Diagram ROI
+- **FRAMEWORK-VISUAL.md**: 15 diagrams, ~575 lines
+- **Value**: At-a-glance strategy comprehension
+- **Reuse**: Diagrams embed in presentations, articles, videos
+
+### Diagram Types by Purpose
+
+| Type | Best For | Example |
+|------|----------|---------|
+| **Flowchart** | Processes, workflows | Release pipeline |
+| **Quadrant** | Positioning, comparison | Market map |
+| **Timeline** | Roadmaps, schedules | Growth targets |
+| **XY Chart** | Metrics, trends | ROI comparison |
+| **Pie** | Distribution, allocation | Color usage |
+
+### Key Insight
+> "A picture is worth a thousand words. A Mermaid diagram is worth a thousand explanations—and it lives in version control."
 
 ---
 
@@ -222,6 +268,7 @@ MARKETING.md (Master Plan)
 ### High-Strength Bidirectional Connections
 - [DK-MARKETING-VOICE-v1.0.0.md] (Critical, Complements, Bidirectional) - "Voice informs execution, execution validates voice"
 - [DK-DOCUMENTATION-EXCELLENCE-v1.1.0.md] (High, Applies, Forward) - "Documentation standards for marketing content"
+- [DK-ADVANCED-DIAGRAMMING-v1.1.0.md] (High, Applies, Bidirectional) - "Diagramming expertise for visual marketing"
 
 ### Medium-Strength Output Connections
 - [alex-identity-integration.instructions.md] (Medium, Expresses, Forward) - "Marketing expresses Alex identity"
@@ -229,8 +276,9 @@ MARKETING.md (Master Plan)
 
 ### Contextual Activation Connections
 - [bootstrap-learning.instructions.md] (Medium, Documents, Forward) - "Learning partnership as marketing angle"
+- [DK-MEMORY-CONSOLIDATION-v1.0.0.md] (Low, Informs, Forward) - "Housekeeping patterns from memory maintenance"
 
-**Primary Function**: Provide operational frameworks for marketing execution, automation, and brand consistency management.
+**Primary Function**: Provide operational frameworks for marketing execution, automation, brand consistency, repository organization, and visual documentation.
 
 **Activation Triggers**:
 - Marketing campaign planning
@@ -238,7 +286,10 @@ MARKETING.md (Master Plan)
 - Brand asset development
 - Release announcement preparation
 - Metrics review and optimization
+- Repository housekeeping
+- Visual documentation creation
 
 ---
 
 *Domain knowledge acquired through Alex Marketing documentation sprint, January 2026*
+*Updated: January 20, 2026 - Added repository organization and visual documentation frameworks*
