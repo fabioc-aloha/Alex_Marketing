@@ -310,39 +310,39 @@ flowchart TD
         D2["Initial skepticism<br/>😕 Another AI tool?"]
         D3["Notice 'transparent memory' hook<br/>🤔 Intrigued"]
     end
-    
+
     subgraph EVALUATION["🔬 EVALUATION"]
         E1["Visit marketplace page<br/>🤔 Checking it out"]
         E2["Read reviews and docs<br/>😐 Researching"]
         E3["Watch demo video<br/>😊 This looks good"]
         E4["Try free installation<br/>🤔 Let's see"]
     end
-    
+
     subgraph FIRSTUSE["⚡ FIRST USE"]
         F1["Install and setup<br/>😐 A bit of work"]
         F2["Run first meditation<br/>🤔 Interesting"]
         F3["See memory files created<br/>😲 Whoa!"]
         F4["'Aha!' moment<br/>😊 I get it now!"]
     end
-    
+
     subgraph ADOPTION["✅ ADOPTION"]
         A1["Use daily for a week<br/>🤔 Building habit"]
         A2["Notice Alex remembering<br/>😊 It actually works!"]
         A3["Customize memory files<br/>😊 Making it mine"]
     end
-    
+
     subgraph ADVOCACY["📣 ADVOCACY"]
         V1["Share with colleague<br/>🤔 They might like this"]
         V2["Write review or post<br/>😊 Worth sharing"]
         V3["Contribute to repo<br/>😊 Part of community"]
     end
-    
+
     D1 --> D2 --> D3
     D3 --> E1 --> E2 --> E3 --> E4
     E4 --> F1 --> F2 --> F3 --> F4
     F4 --> A1 --> A2 --> A3
     A3 --> V1 --> V2 --> V3
-    
+
     style DISCOVERY fill:#ffebee
     style EVALUATION fill:#fff3e0
     style FIRSTUSE fill:#e8f5e9
