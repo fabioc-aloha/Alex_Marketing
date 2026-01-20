@@ -132,8 +132,8 @@ def update_changelog(extension_dir: Path, new_version: str, dry_run: bool = Fals
     print(f"  ✅ Added CHANGELOG entry for {new_version}")
 
 
-def update_copilot_instructions(extension_dir: Path, new_version: str, dry_run: bool = False) -> None:
-    """Update version in copilot-instructions.md."""
+def update_copilot_instructions(extension_dir: Path, new_version: str, old_version: str = None, dry_run: bool = False) -> None:
+    """Update all version references in copilot-instructions.md."""
     instructions = extension_dir / ".github" / "copilot-instructions.md"
 
     if not instructions.exists():
@@ -144,6 +144,7 @@ def update_copilot_instructions(extension_dir: Path, new_version: str, dry_run: 
         return
 
     version_name = version_to_name(new_version)
+    old_version_name = version_to_name(old_version) if old_version else None
 
     if dry_run:
         print(f"  [DRY RUN] Would update copilot-instructions.md: {new_version} {version_name}")
@@ -151,15 +152,40 @@ def update_copilot_instructions(extension_dir: Path, new_version: str, dry_run: 
 
     content = instructions.read_text(encoding="utf-8")
 
-    # Update version line
+    # 1. Update header version line: **Version**: X.Y.Z NAME
     content = re.sub(
         r"\*\*Version\*\*: [\d.]+ [A-Z]+",
         f"**Version**: {new_version} {version_name}",
         content
     )
 
+    # 2. Update Current Architecture Version: X.Y.Z NAME
+    content = re.sub(
+        r"\*\*Current Architecture Version\*\*: [\d.]+ [A-Z]+",
+        f"**Current Architecture Version**: {new_version} {version_name}",
+        content
+    )
+
+    # 3. Update Version Control System section
+    # **Current**: X.Y.Z NAME (pronunciation) - description
+    if old_version and old_version_name:
+        # Get pronunciation for new version (e.g., bi-nil-un-ium)
+        new_pronunciation = "-".join(
+            {"0": "nil", "1": "un", "2": "bi", "3": "tri", "4": "quad",
+             "5": "pent", "6": "hex", "7": "sept", "8": "oct", "9": "enn"}[d]
+            for d in new_version.replace(".", "")
+        ) + "-ium"
+
+        # Update Current line and shift old current to Previous
+        content = re.sub(
+            r"\*\*Current\*\*: [\d.]+ [A-Z]+ \([^)]+\) - ([^\n]+)\n\*\*Previous\*\*: [^\n]+",
+            f"**Current**: {new_version} {version_name} ({new_pronunciation}) - \\1\n"
+            f"**Previous**: {old_version} {old_version_name} - GitHub Copilot AI Extensibility",
+            content
+        )
+
     instructions.write_text(content, encoding="utf-8")
-    print(f"  ✅ Updated copilot-instructions.md: {new_version} {version_name}")
+    print(f"  ✅ Updated copilot-instructions.md: {new_version} {version_name} (all references)")
 
 
 # =============================================================================
@@ -268,7 +294,7 @@ def workflow_bump(bump_type: str = None, set_version: str = None, dry_run: bool 
     # Update files
     update_package_json(EXTENSION_DIR, new_version, dry_run)
     update_changelog(EXTENSION_DIR, new_version, dry_run)
-    update_copilot_instructions(EXTENSION_DIR, new_version, dry_run)
+    update_copilot_instructions(EXTENSION_DIR, new_version, current_version, dry_run)
 
     # Git operations
     print()
