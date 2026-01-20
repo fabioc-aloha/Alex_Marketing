@@ -94,19 +94,19 @@ flowchart TD
         W3[No Budget]
         W4[Setup Complexity]
     end
-    
+
     subgraph MITIGATIONS["Mitigation Strategies"]
         M1[Quality > Quantity Focus]
         M2[Indie Authenticity]
         M3[Content Marketing]
         M4[Tutorial Videos]
     end
-    
+
     W1 --> M1
     W2 --> M2
     W3 --> M3
     W4 --> M4
-    
+
     style WEAKNESSES fill:#ffcdd2
     style MITIGATIONS fill:#c8e6c9
 ```
@@ -159,19 +159,19 @@ flowchart LR
         T3[🟡 ChatGPT Memory]
         T4[🟡 Market Saturation]
     end
-    
+
     subgraph DEFENSE["Defensive Positioning"]
         D1[Transparency Focus]
         D2[VS Code Native]
         D3[Code-Specific]
         D4[Clear Messaging]
     end
-    
+
     T1 --> D1
     T2 --> D2
     T3 --> D3
     T4 --> D4
-    
+
     style T1 fill:#ef5350
     style T2 fill:#ef5350
     style T3 fill:#ffca28
@@ -349,7 +349,7 @@ flowchart TD
         D3[Notices: Can see memory files]
         D4[Intrigued enough to click]
     end
-    
+
     subgraph EVALUATION["🔬 Evaluation"]
         E1[Reads marketplace page]
         E2[Checks GitHub repo]
@@ -357,7 +357,7 @@ flowchart TD
         E4[Watches demo showing memory files]
         E5[Decision: I can always uninstall]
     end
-    
+
     subgraph ACTIVATION["⚡ Activation"]
         A1[Installs extension]
         A2[Skeptically runs Initialize]
@@ -365,7 +365,7 @@ flowchart TD
         A4[Sees markdown memory files]
         A5[Aha: I can actually READ this]
     end
-    
+
     subgraph RETENTION["🔄 Retention"]
         R1[Uses for a few days]
         R2[Notices Alex remembering conventions]
@@ -373,19 +373,19 @@ flowchart TD
         R4[It works! Full control!]
         R5[Daily user now]
     end
-    
+
     subgraph ADVOCACY["📣 Advocacy"]
         V1[Tells senior dev colleague]
         V2[Writes technical blog post]
         V3[Stars GitHub repo]
     end
-    
+
     D1 --> D2 --> D3 --> D4
     D4 --> E1 --> E2 --> E3 --> E4 --> E5
     E5 --> A1 --> A2 --> A3 --> A4 --> A5
     A5 --> R1 --> R2 --> R3 --> R4 --> R5
     R5 --> V1 --> V2 --> V3
-    
+
     style D3 fill:#fff9c4
     style A5 fill:#c8e6c9
     style R4 fill:#c8e6c9
@@ -419,14 +419,14 @@ flowchart TD
         D2[Immediately interested]
         D3[Clicks link]
     end
-    
+
     subgraph EVALUATION["🔬 Evaluation"]
         E1[Skims marketplace page]
         E2[Looks at install count]
         E3[FOMO: Early adopter opportunity]
         E4[Installs immediately]
     end
-    
+
     subgraph ACTIVATION["⚡ Activation"]
         A1[Runs all commands]
         A2[Explores every feature]
@@ -434,26 +434,26 @@ flowchart TD
         A4[Reads meditation files]
         A5[This is cool!]
     end
-    
+
     subgraph RETENTION["🔄 Retention"]
         R1[Makes it part of daily workflow]
         R2[Customizes heavily]
         R3[Suggests features on GitHub]
     end
-    
+
     subgraph ADVOCACY["📣 Advocacy"]
         V1[Tweets about it]
         V2[Makes TikTok/YouTube Short]
         V3[Writes Product Hunt review]
         V4[Becomes community champion]
     end
-    
+
     D1 --> D2 --> D3
     D3 --> E1 --> E2 --> E3 --> E4
     E4 --> A1 --> A2 --> A3 --> A4 --> A5
     A5 --> R1 --> R2 --> R3
     R3 --> V1 --> V2 --> V3 --> V4
-    
+
     style E3 fill:#fff9c4
     style V1 fill:#bbdefb
     style V4 fill:#c8e6c9
@@ -486,7 +486,7 @@ flowchart TD
         D2[Sees it on their machine]
         D3[Asks about it]
     end
-    
+
     subgraph EVALUATION["🔬 Evaluation"]
         E1[Personal evaluation first]
         E2[Considers team implications]
@@ -494,33 +494,33 @@ flowchart TD
         E4[Realizes: Shared memory via git!]
         E5[Team could share patterns]
     end
-    
+
     subgraph TRIAL["🧪 Team Trial"]
         T1[Installs for self]
         T2[Positive experience]
         T3[Proposes trial to 2 devs]
         T4[Monitors for 2 weeks]
     end
-    
+
     subgraph ADOPTION["✅ Team Adoption"]
         A1[Positive trial feedback]
         A2[Rolls out to full team]
         A3[Creates team memory conventions]
         A4[Documents in team wiki]
     end
-    
+
     subgraph ADVOCACY["📣 Advocacy"]
         V1[Shares at meetup]
         V2[LinkedIn post about team productivity]
         V3[Recommends to other leads]
     end
-    
+
     D1 --> D2 --> D3
     D3 --> E1 --> E2 --> E3 --> E4 --> E5
     E5 --> T1 --> T2 --> T3 --> T4
     T4 --> A1 --> A2 --> A3 --> A4
     A4 --> V1 --> V2 --> V3
-    
+
     style E4 fill:#fff9c4
     style A3 fill:#c8e6c9
 ```
@@ -561,29 +561,29 @@ flowchart LR
         M1A[See "transparent memory"]
         M1B[Intrigued or scroll past]
     end
-    
+
     subgraph MOT2["Moment 2: Trust Check"]
         M2A[Visit marketplace/GitHub]
         M2B[Credible or sketchy?]
     end
-    
+
     subgraph MOT3["Moment 3: First Value"]
         M3A[See memory files created]
         M3B[Aha! or Confused?]
     end
-    
+
     subgraph MOT4["Moment 4: Habit Formation"]
         M4A[Alex remembers something useful]
         M4B[Delighted or Meh?]
     end
-    
+
     subgraph MOT5["Moment 5: Sharing Trigger"]
         M5A[Something worth sharing]
         M5B[Share or Keep quiet?]
     end
-    
+
     MOT1 --> MOT2 --> MOT3 --> MOT4 --> MOT5
-    
+
     style M1A fill:#e3f2fd
     style M3A fill:#e8f5e9
     style M4A fill:#fff9c4

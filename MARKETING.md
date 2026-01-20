@@ -97,6 +97,8 @@ Let's be real: ChatGPT and Copilot now have memory features too. So what makes A
 > 📊 **See [COMPETITIVE-ANALYSIS.md](COMPETITIVE-ANALYSIS.md)** for full competitor breakdown, battleground analysis, and positioning strategies.
 >
 > 📈 **See [STRATEGIC-ANALYSIS.md](STRATEGIC-ANALYSIS.md)** for SWOT, PESTLE analysis, and customer journey maps.
+>
+> 💰 **See [MONETIZATION-STRATEGY.md](MONETIZATION-STRATEGY.md)** for revenue models, pricing tiers, and business roadmap.
 
 ---
 
