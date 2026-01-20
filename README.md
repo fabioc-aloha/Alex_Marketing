@@ -6,16 +6,31 @@
 
 Marketing and release automation for [Alex Cognitive Architecture](https://github.com/fabioc-aloha/Alex_Plug_In).
 
-## Scripts
+## 📚 Documentation Suite
+
+| Document | Purpose |
+|----------|---------|
+| [MARKETING.md](MARKETING.md) | Master marketing strategy and plan |
+| [BRAND-GUIDELINES.md](BRAND-GUIDELINES.md) | Visual identity, voice, and tone |
+| [FRAMEWORK-VISUAL.md](FRAMEWORK-VISUAL.md) | 15 diagrams for at-a-glance strategy |
+| [STRATEGIC-ANALYSIS.md](STRATEGIC-ANALYSIS.md) | SWOT, PESTLE, customer personas |
+| [COMPETITIVE-ANALYSIS.md](COMPETITIVE-ANALYSIS.md) | Market positioning vs competitors |
+| [MONETIZATION-STRATEGY.md](MONETIZATION-STRATEGY.md) | Pricing tiers and revenue roadmap |
+| [CHANNEL-LINKEDIN.md](CHANNEL-LINKEDIN.md) | LinkedIn execution playbook |
+| [CHANNEL-YOUTUBE.md](CHANNEL-YOUTUBE.md) | YouTube content strategy |
+| [REQUIREMENTS.md](REQUIREMENTS.md) | Pre-flight checklist for launch |
+| [AUTOMATION.md](AUTOMATION.md) | Scripts and automation guide |
+
+## 🤖 Scripts
 
 | Script | Purpose |
-| ------ | ------- |
+|--------|---------|
 | `release.py` | **Full release workflow** - bump, publish, announce |
 | `publish.py` | Package, publish, and create GitHub releases |
 | `version.py` | Bump version and update files |
 | `announce.py` | Post announcements to social media |
 
-## Quick Start
+## 🚀 Quick Start
 
 ```bash
 # Install dependencies
@@ -186,27 +201,43 @@ DEVTO_API_KEY=
 DISCORD_WEBHOOK_URL=
 ```
 
-## Architecture
+## 🏗️ Architecture
 
 ```
-Alex_Marketing (this repo)
-    │
-    ├── scripts/
-    │   ├── release.py      # Orchestrates full release
-    │   ├── publish.py      # Packaging, publishing & GitHub releases
-    │   ├── version.py      # Version management
-    │   ├── announce.py     # Social media posting
-    │   └── .env            # Credentials (gitignored)
-    │
-    ├── MARKETING.md        # Full marketing plan
-    └── PRE-PUBLISH-CHECKLIST.md
-
-    ↓ Fetches via GitHub API
-
-Alex_Plug_In (extension repo)
-    ├── package.json        # Version source of truth
-    ├── CHANGELOG.md        # Release notes
-    └── Releases/           # .vsix files as GitHub Release assets
+Alex_Marketing/
+├── 📚 Strategy Documents
+│   ├── MARKETING.md              # Master plan
+│   ├── BRAND-GUIDELINES.md       # Visual + voice identity
+│   ├── FRAMEWORK-VISUAL.md       # 15 Mermaid diagrams
+│   ├── STRATEGIC-ANALYSIS.md     # SWOT, PESTLE, personas
+│   ├── COMPETITIVE-ANALYSIS.md   # Market positioning
+│   └── MONETIZATION-STRATEGY.md  # Pricing + revenue
+│
+├── 📺 Channel Playbooks
+│   ├── CHANNEL-LINKEDIN.md       # LinkedIn strategy
+│   └── CHANNEL-YOUTUBE.md        # YouTube strategy
+│
+├── ⚙️ Operations
+│   ├── REQUIREMENTS.md           # Launch prerequisites
+│   └── AUTOMATION.md             # Script documentation
+│
+├── 🤖 scripts/
+│   ├── release.py                # Full release workflow
+│   ├── publish.py                # Packaging + publishing
+│   ├── version.py                # Version management
+│   ├── announce.py               # Multi-platform announcements
+│   └── .env                      # Credentials (gitignored)
+│
+├── 🎨 assets/
+│   ├── banner-alex-marketing.svg # 1280×640 banner
+│   ├── badge-alex.svg            # 200×40 badge
+│   └── icon-alex.svg             # 128×128 icon
+│
+├── 📖 domain-knowledge/
+│   ├── DK-MARKETING-VOICE-v1.0.0.md      # Brand voice
+│   └── DK-MARKETING-EXECUTION-v1.0.0.md  # Operations
+│
+└── 📦 extension-build/           # Extension source + core architecture
 ```
 
 ## Version History via Releases
@@ -265,8 +296,12 @@ Dry run will:
 - ✅ Skip actual publishing and GitHub release creation
 - ✅ Not modify any files or push any changes
 
-## Related
+## 🔗 Related
 
 - [Alex Cognitive Architecture](https://github.com/fabioc-aloha/Alex_Plug_In) - Extension source
 - [Releases](https://github.com/fabioc-aloha/Alex_Plug_In/releases) - All versions with .vsix downloads
 - [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=fabioc-aloha.alex-cognitive-architecture)
+
+---
+
+*"Their memory is a black box. Mine is a markdown file."* — Alex
