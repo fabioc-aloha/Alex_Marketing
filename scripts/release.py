@@ -24,7 +24,7 @@ def run_script(script: str, args: list[str]) -> bool:
     print(f"\n{'=' * 60}")
     print(f"  Running: python {script} {' '.join(args)}")
     print(f"{'=' * 60}\n")
-    
+
     result = subprocess.run(cmd, cwd=SCRIPTS_DIR)
     return result.returncode == 0
 
@@ -45,12 +45,14 @@ Examples:
     python release.py --bump patch --dry-run
 
 Workflow:
-    1. Bump version (version.py)
-    2. Package & publish (publish.py)
-    3. Announce on social media (announce.py)
+    1. Check prerequisites
+    2. Clone/update extension repo
+    3. Bump version (version.py)
+    4. Package & publish (publish.py --publish-only)
+    5. Announce on social media (announce.py)
         """,
     )
-    
+
     parser.add_argument(
         "--bump",
         choices=["major", "minor", "patch"],
@@ -67,36 +69,42 @@ Workflow:
         action="store_true",
         help="Preview without executing"
     )
-    
+
     args = parser.parse_args()
-    
+
     print("=" * 60)
     print("  Alex Cognitive Architecture - Full Release")
     print("=" * 60)
-    
+
     dry_run_flag = ["--dry-run"] if args.dry_run else []
-    
+
     # Step 1: Check prerequisites
-    print("\n📋 Step 1/4: Checking prerequisites...")
+    print("\n📋 Step 1/5: Checking prerequisites...")
     if not run_script("publish.py", ["--check"]):
         print("\n❌ Prerequisites check failed!")
         sys.exit(1)
-    
-    # Step 2: Bump version
-    print("\n📋 Step 2/4: Bumping version...")
-    if not run_script("version.py", ["--bump", args.bump] + dry_run_flag):
+
+    # Step 2: Clone/update extension repo (package does this)
+    print("\n📋 Step 2/5: Setting up extension repository...")
+    if not run_script("publish.py", ["--package"] + dry_run_flag):
+        print("\n❌ Repository setup failed!")
+        sys.exit(1)
+
+    # Step 3: Bump version (in the cloned repo)
+    print("\n📋 Step 3/5: Bumping version...")
+    if not run_script("version.py", ["--bump", args.bump, "--auto-push"] + dry_run_flag):
         print("\n❌ Version bump failed!")
         sys.exit(1)
-    
-    # Step 3: Package and publish
-    print("\n📋 Step 3/4: Publishing extension...")
+
+    # Step 4: Re-package and publish (with new version)
+    print("\n📋 Step 4/5: Publishing extension...")
     if not run_script("publish.py", ["--publish"] + dry_run_flag):
         print("\n❌ Publishing failed!")
         sys.exit(1)
-    
-    # Step 4: Announce (optional)
+
+    # Step 5: Announce (optional)
     if not args.skip_announce:
-        print("\n📋 Step 4/4: Announcing release...")
+        print("\n📋 Step 5/5: Announcing release...")
         if args.dry_run:
             run_script("announce.py", ["--platform", "all", "--dry-run"])
         else:
@@ -106,7 +114,7 @@ Workflow:
                 run_script("announce.py", ["--platform", "reddit", "--subreddit", "vscode"])
                 run_script("announce.py", ["--platform", "twitter"])
                 run_script("announce.py", ["--platform", "devto"])
-                
+
                 print("\n  ✅ Primary announcements posted!")
                 print("  💡 Post to secondary channels tomorrow:")
                 print("     python announce.py --platform reddit --subreddit github")
@@ -116,8 +124,8 @@ Workflow:
                 print("\n  ⏭️  Skipped announcements")
                 print("     Run manually: python announce.py --platform all")
     else:
-        print("\n📋 Step 4/4: Skipping announcements (--skip-announce)")
-    
+        print("\n📋 Step 5/5: Skipping announcements (--skip-announce)")
+
     # Summary
     print("\n" + "=" * 60)
     if args.dry_run:
@@ -131,3 +139,4 @@ Workflow:
 
 if __name__ == "__main__":
     main()
+

@@ -45,7 +45,7 @@ def parse_version(version: str) -> tuple[int, int, int]:
 def bump_version(current: str, bump_type: str) -> str:
     """Bump version according to type."""
     major, minor, patch = parse_version(current)
-    
+
     if bump_type == "major":
         return f"{major + 1}.0.0"
     elif bump_type == "minor":
@@ -74,22 +74,22 @@ def version_to_name(version: str) -> str:
 def update_package_json(extension_dir: Path, new_version: str, dry_run: bool = False) -> str:
     """Update version in package.json. Returns old version."""
     package_json = extension_dir / "package.json"
-    
+
     with open(package_json) as f:
         data = json.load(f)
-    
+
     old_version = data.get("version", "0.0.0")
-    
+
     if dry_run:
         print(f"  [DRY RUN] Would update package.json: {old_version} -> {new_version}")
         return old_version
-    
+
     data["version"] = new_version
-    
+
     with open(package_json, "w") as f:
         json.dump(data, f, indent=2)
         f.write("\n")
-    
+
     print(f"  ✅ Updated package.json: {old_version} -> {new_version}")
     return old_version
 
@@ -98,64 +98,67 @@ def update_changelog(extension_dir: Path, new_version: str, dry_run: bool = Fals
     """Add new version entry to CHANGELOG.md."""
     changelog = extension_dir / "CHANGELOG.md"
     today = datetime.now().strftime("%Y-%m-%d")
-    
+
     new_entry = f"""## [{new_version}] - {today}
 
 ### Added
 
-- 
+-
 
 ### Changed
 
-- 
+-
 
 ### Fixed
 
-- 
+-
 
 """
-    
+
     if dry_run:
         print(f"  [DRY RUN] Would add CHANGELOG entry for {new_version}")
         return
-    
-    content = changelog.read_text()
-    
+
+    content = changelog.read_text(encoding="utf-8")
+
     # Insert after the first heading
     insert_pos = content.find("\n## ")
     if insert_pos == -1:
         insert_pos = content.find("\n")
-    
+
     new_content = content[:insert_pos + 1] + new_entry + content[insert_pos + 1:]
-    changelog.write_text(new_content)
-    
+    changelog.write_text(new_content, encoding="utf-8")
+
     print(f"  ✅ Added CHANGELOG entry for {new_version}")
 
 
 def update_copilot_instructions(extension_dir: Path, new_version: str, dry_run: bool = False) -> None:
     """Update version in copilot-instructions.md."""
     instructions = extension_dir / ".github" / "copilot-instructions.md"
-    
+
     if not instructions.exists():
+        if dry_run:
+            print(f"  [DRY RUN] Would update copilot-instructions.md")
+            return
         print(f"  ⚠️  copilot-instructions.md not found, skipping")
         return
-    
+
     version_name = version_to_name(new_version)
-    
+
     if dry_run:
         print(f"  [DRY RUN] Would update copilot-instructions.md: {new_version} {version_name}")
         return
-    
-    content = instructions.read_text()
-    
+
+    content = instructions.read_text(encoding="utf-8")
+
     # Update version line
     content = re.sub(
         r"\*\*Version\*\*: [\d.]+ [A-Z]+",
         f"**Version**: {new_version} {version_name}",
         content
     )
-    
-    instructions.write_text(content)
+
+    instructions.write_text(content, encoding="utf-8")
     print(f"  ✅ Updated copilot-instructions.md: {new_version} {version_name}")
 
 
@@ -165,41 +168,41 @@ def update_copilot_instructions(extension_dir: Path, new_version: str, dry_run: 
 
 def git_commit_and_tag(extension_dir: Path, new_version: str, dry_run: bool = False) -> None:
     """Commit changes and create a git tag."""
-    
+
     if dry_run:
         print(f"  [DRY RUN] Would commit and tag v{new_version}")
         return
-    
+
     # Stage changes
     subprocess.run(["git", "add", "-A"], cwd=extension_dir, check=True)
-    
+
     # Commit
     subprocess.run(
         ["git", "commit", "-m", f"chore: bump version to {new_version}"],
         cwd=extension_dir,
         check=True
     )
-    
+
     # Tag
     subprocess.run(
         ["git", "tag", "-a", f"v{new_version}", "-m", f"Release v{new_version}"],
         cwd=extension_dir,
         check=True
     )
-    
+
     print(f"  ✅ Created commit and tag v{new_version}")
 
 
 def git_push(extension_dir: Path, dry_run: bool = False) -> None:
     """Push commits and tags."""
-    
+
     if dry_run:
         print(f"  [DRY RUN] Would push to origin with tags")
         return
-    
+
     subprocess.run(["git", "push"], cwd=extension_dir, check=True)
     subprocess.run(["git", "push", "--tags"], cwd=extension_dir, check=True)
-    
+
     print(f"  ✅ Pushed to origin with tags")
 
 
@@ -207,22 +210,47 @@ def git_push(extension_dir: Path, dry_run: bool = False) -> None:
 # MAIN WORKFLOW
 # =============================================================================
 
-def workflow_bump(bump_type: str = None, set_version: str = None, dry_run: bool = False) -> str:
+def workflow_bump(bump_type: str = None, set_version: str = None, dry_run: bool = False, auto_push: bool = False) -> str:
     """Bump version and prepare release."""
-    
+
     print("\n📦 Version Bump Workflow\n")
-    
-    # Check extension repo exists
+
+    # In dry-run mode, handle missing extension dir gracefully
     if not EXTENSION_DIR.exists():
-        print(f"  ❌ Extension repo not found at {EXTENSION_DIR}")
-        print(f"     Run: python publish.py --package first")
-        sys.exit(1)
-    
+        if dry_run:
+            print(f"  [DRY RUN] Extension repo not yet cloned")
+            print(f"  [DRY RUN] Would clone to: {EXTENSION_DIR}")
+            # Use mock version for dry-run preview
+            current_version = "X.Y.Z"
+            if bump_type == "patch":
+                new_version = "X.Y.Z+1"
+            elif bump_type == "minor":
+                new_version = "X.Y+1.0"
+            elif bump_type == "major":
+                new_version = "X+1.0.0"
+            else:
+                new_version = set_version or "X.Y.Z"
+            
+            print(f"  📌 Current version: {current_version} (will be read from cloned repo)")
+            print(f"  📌 New version: {new_version}")
+            print()
+            print(f"  [DRY RUN] Would update package.json")
+            print(f"  [DRY RUN] Would add CHANGELOG entry")
+            print(f"  [DRY RUN] Would update copilot-instructions.md")
+            print()
+            print(f"  [DRY RUN] Would commit and tag")
+            print(f"  [DRY RUN] Would push to origin with tags")
+            return new_version
+        else:
+            print(f"  ❌ Extension repo not found at {EXTENSION_DIR}")
+            print(f"     Run: python publish.py --package first")
+            sys.exit(1)
+
     # Get current version
     package_json = EXTENSION_DIR / "package.json"
     with open(package_json) as f:
         current_version = json.load(f).get("version", "0.0.0")
-    
+
     # Determine new version
     if set_version:
         new_version = set_version
@@ -230,30 +258,33 @@ def workflow_bump(bump_type: str = None, set_version: str = None, dry_run: bool 
         new_version = bump_version(current_version, bump_type)
     else:
         raise ValueError("Must specify --bump or --set")
-    
+
     version_name = version_to_name(new_version)
-    
+
     print(f"  📌 Current version: {current_version}")
     print(f"  📌 New version: {new_version} ({version_name})")
     print()
-    
+
     # Update files
     update_package_json(EXTENSION_DIR, new_version, dry_run)
     update_changelog(EXTENSION_DIR, new_version, dry_run)
     update_copilot_instructions(EXTENSION_DIR, new_version, dry_run)
-    
+
     # Git operations
     print()
     git_commit_and_tag(EXTENSION_DIR, new_version, dry_run)
-    
-    # Ask before pushing
+
+    # Push changes
     if not dry_run:
-        response = input("\n  Push to origin? [y/N]: ")
-        if response.lower() == "y":
+        if auto_push:
             git_push(EXTENSION_DIR, dry_run)
         else:
-            print("  ⏭️  Skipped push. Run manually: git push && git push --tags")
-    
+            response = input("\n  Push to origin? [y/N]: ")
+            if response.lower() == "y":
+                git_push(EXTENSION_DIR, dry_run)
+            else:
+                print("  ⏭️  Skipped push. Run manually: git push && git push --tags")
+
     return new_version
 
 
@@ -283,21 +314,22 @@ Examples:
     python version.py --bump patch --dry-run
         """,
     )
-    
+
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--bump", choices=["major", "minor", "patch"], help="Bump type")
     group.add_argument("--set", dest="set_version", type=str, help="Set specific version")
-    
+
     parser.add_argument("--dry-run", action="store_true", help="Preview without executing")
-    
+    parser.add_argument("--auto-push", action="store_true", help="Automatically push without prompting")
+
     args = parser.parse_args()
-    
+
     print("=" * 60)
     print("  Alex Cognitive Architecture - Version Manager")
     print("=" * 60)
-    
-    new_version = workflow_bump(args.bump, args.set_version, args.dry_run)
-    
+
+    new_version = workflow_bump(args.bump, args.set_version, args.dry_run, getattr(args, "auto_push", False))
+
     if args.dry_run:
         print("\n⚠️  This was a dry run. No changes were made.")
     else:
@@ -310,3 +342,7 @@ Examples:
 
 if __name__ == "__main__":
     main()
+
+
+
+

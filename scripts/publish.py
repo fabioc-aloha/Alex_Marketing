@@ -114,8 +114,8 @@ def check_prerequisites() -> bool:
 
     checks = [
         ("node", ["node", "--version"], "Node.js"),
-        ("npm", ["npm", "--version"], "npm"),
-        ("vsce", ["vsce", "--version"], "vsce (VS Code Extension Manager)"),
+        ("npm", ["npm.cmd", "--version"], "npm"),
+        ("vsce", ["vsce.cmd", "--version"], "vsce (VS Code Extension Manager)"),
         ("git", ["git", "--version"], "Git"),
         ("gh", ["gh", "--version"], "GitHub CLI"),
     ]
@@ -194,7 +194,7 @@ def install_dependencies(extension_dir: Path, dry_run: bool = False) -> None:
         print(f"  [DRY RUN] Would run: npm ci")
         return
 
-    run_command(["npm", "ci"], cwd=extension_dir)
+    run_command(["npm.cmd", "ci"], cwd=extension_dir)
     print(f"  ✅ Dependencies installed")
 
 
@@ -206,7 +206,7 @@ def build_extension(extension_dir: Path, dry_run: bool = False) -> None:
         print(f"  [DRY RUN] Would run: npm run compile")
         return
 
-    run_command(["npm", "run", "compile"], cwd=extension_dir)
+    run_command(["npm.cmd", "run", "compile"], cwd=extension_dir)
     print(f"  ✅ Build complete")
 
 
@@ -214,20 +214,20 @@ def package_extension(extension_dir: Path, dry_run: bool = False) -> Path:
     """Package the extension into a .vsix file."""
     print("\n📦 Packaging extension...\n")
 
+    if dry_run:
+        print(f"  [DRY RUN] Would run: vsce package")
+        print(f"  [DRY RUN] Output: {extension_dir / EXTENSION_ID}-X.Y.Z.vsix")
+        return extension_dir / f"{EXTENSION_ID}-0.0.0.vsix"
+
     version = get_version(extension_dir)
     vsix_name = f"{EXTENSION_ID}-{version}.vsix"
     vsix_path = extension_dir / vsix_name
-
-    if dry_run:
-        print(f"  [DRY RUN] Would run: vsce package")
-        print(f"  [DRY RUN] Output: {vsix_path}")
-        return vsix_path
 
     # Remove old vsix files
     for old_vsix in extension_dir.glob("*.vsix"):
         old_vsix.unlink()
 
-    run_command(["vsce", "package"], cwd=extension_dir)
+    run_command(["vsce.cmd", "package"], cwd=extension_dir)
 
     # Find the created vsix
     vsix_files = list(extension_dir.glob("*.vsix"))
@@ -259,7 +259,7 @@ def verify_pat() -> str:
     # Verify PAT
     try:
         result = subprocess.run(
-            ["vsce", "verify-pat", PUBLISHER],
+            ["vsce.cmd", "verify-pat", PUBLISHER],
             env={**os.environ, "VSCE_PAT": pat},
             capture_output=True,
             text=True
@@ -290,7 +290,7 @@ def publish_extension(vsix_path: Path, pat: str, dry_run: bool = False) -> None:
         sys.exit(1)
 
     run_command(
-        ["vsce", "publish", "-p", pat, "--packagePath", str(vsix_path)],
+        ["vsce.cmd", "publish", "-p", pat, "--packagePath", str(vsix_path)],
         cwd=vsix_path.parent
     )
 
@@ -315,15 +315,15 @@ def check_release_exists(version: str) -> bool:
 def create_github_release(vsix_path: Path, extension_dir: Path, dry_run: bool = False) -> None:
     """Create a GitHub release with the .vsix file attached."""
     print("\n🏷️  Creating GitHub Release...\n")
-    
-    version = get_version(extension_dir)
-    tag = f"v{version}"
-    
+
     if dry_run:
-        print(f"  [DRY RUN] Would create release: {tag}")
+        print(f"  [DRY RUN] Would create release: vX.Y.Z")
         print(f"  [DRY RUN] Would attach: {vsix_path.name}")
         return
-    
+
+    version = get_version(extension_dir)
+    tag = f"v{version}"
+
     # Check if release already exists
     if check_release_exists(version):
         print(f"  ⚠️  Release {tag} already exists")
@@ -412,7 +412,7 @@ def show_marketplace_status() -> None:
 
     try:
         result = subprocess.run(
-            ["vsce", "show", f"{PUBLISHER}.{EXTENSION_ID}"],
+            ["vsce.cmd", "show", f"{PUBLISHER}.{EXTENSION_ID}"],
             capture_output=True,
             text=True
         )
@@ -577,3 +577,7 @@ Examples:
 
 if __name__ == "__main__":
     main()
+
+
+
+
