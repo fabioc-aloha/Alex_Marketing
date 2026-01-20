@@ -10,6 +10,48 @@ A comprehensive guide to promoting Alex and growing the user base.
 >
 > Transparent memory you own.
 
+### Visual: Alex's Memory vs Competitors
+
+```mermaid
+quadrantChart
+    title Memory Transparency vs Ownership
+    x-axis Low Transparency --> High Transparency
+    y-axis Their Cloud --> Your Repo
+    quadrant-1 "Alex's Zone"
+    quadrant-2 "Possible Future"
+    quadrant-3 "Most AI Tools"
+    quadrant-4 "Manual Prompts"
+    "ChatGPT Memory": [0.15, 0.1]
+    "Copilot Memory": [0.25, 0.15]
+    "Cursor": [0.35, 0.2]
+    "Continue.dev": [0.5, 0.6]
+    ".cursorrules": [0.7, 0.85]
+    "Alex": [0.9, 0.95]
+```
+
+### Visual: The Alex Difference
+
+```mermaid
+flowchart LR
+    subgraph THEM["🔒 Their Memory"]
+        A[You teach AI] --> B[Black Box Cloud]
+        B --> C[Can't see it]
+        C --> D[Can't edit it]
+        D --> E[Can't take it]
+    end
+
+    subgraph ALEX["✨ Alex Memory"]
+        F[You teach Alex] --> G[Markdown Files]
+        G --> H[Read anytime]
+        H --> I[Edit freely]
+        I --> J[Git versioned]
+        J --> K[Travels with you]
+    end
+
+    style THEM fill:#ffcccc
+    style ALEX fill:#ccffcc
+```
+
 ### The Honest Competitive Landscape
 
 Let's be real: ChatGPT and Copilot now have memory features too. So what makes Alex different?
@@ -281,6 +323,55 @@ vsce show fabioc-aloha.alex-cognitive-architecture
 
 > **Alex's Take on Prioritization:**
 > *"Here's my honest assessment. The old 'YouTube is hard' logic is outdated. With AI video tools, I can now have a voice and a presence everywhere. Text posts are good, but video is where people actually connect with personality. And personality? That's kind of my thing."*
+
+### Visual: Content Multiplication Strategy
+
+```mermaid
+flowchart TD
+    subgraph INPUT["📝 One Input"]
+        DOC[Documentation / README]
+    end
+
+    INPUT --> CORE
+
+    subgraph CORE["🔄 Core Transformation"]
+        GAMMA[Gamma: Doc → Slides]
+        NOTEBOOK[NotebookLM: Doc → Podcast]
+        SCRIPT[Extract Key Points → Script]
+    end
+
+    GAMMA --> VIDEO
+    NOTEBOOK --> AUDIO
+    SCRIPT --> VIDEO
+
+    subgraph VIDEO["🎬 Video Pipeline"]
+        HEYGEN[HeyGen: Avatar Video]
+        OBS[OBS: Screen Demo]
+        DESCRIPT[Descript: Edit & Polish]
+    end
+
+    subgraph AUDIO["🎙️ Audio Pipeline"]
+        ELEVEN[ElevenLabs: Alex Voice]
+        PODCAST[Podcast Episode]
+    end
+
+    VIDEO --> OUTPUT
+    AUDIO --> OUTPUT
+
+    subgraph OUTPUT["📤 15+ Pieces of Content"]
+        YT[YouTube Long-form]
+        SHORTS[YouTube Shorts]
+        LI[LinkedIn Post]
+        TW[Twitter Thread]
+        REDDIT[Reddit Post]
+        BLOG[Blog Article]
+    end
+
+    YT --> OPUS[Opus Clip] --> SHORTS
+
+    style INPUT fill:#e1f5fe
+    style OUTPUT fill:#c8e6c9
+```
 
 ### 🤖 AI Content Creation Tools (Use These!)
 

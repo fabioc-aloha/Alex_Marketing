@@ -7,6 +7,58 @@
 
 ## 🏆 Competitive Landscape Overview
 
+### Visual: Competitive Positioning Map
+
+```mermaid
+quadrantChart
+    title Memory Transparency vs User Ownership
+    x-axis Opaque Memory --> Transparent Memory
+    y-axis Vendor Lock-in --> User Ownership
+    quadrant-1 "ALEX ZONE: Transparent + Owned"
+    quadrant-2 "OPPORTUNITY: Owned but Opaque"
+    quadrant-3 "MOST TOOLS: Opaque + Locked"
+    quadrant-4 "MANUAL: Transparent but Tedious"
+    "ChatGPT Memory": [0.15, 0.15]
+    "Copilot Memory": [0.2, 0.2]
+    "Cursor Context": [0.35, 0.25]
+    "Cline/Aider": [0.45, 0.55]
+    "Continue.dev": [0.55, 0.65]
+    ".cursorrules": [0.75, 0.8]
+    "Alex": [0.92, 0.92]
+```
+
+### Visual: Threat Level Assessment
+
+```mermaid
+flowchart TD
+    subgraph T1["🔴 Tier 1: Major Threats"]
+        CURSOR[Cursor<br/>AI-native IDE]
+        COPILOT[Copilot Memory<br/>Native integration]
+        CHATGPT[ChatGPT Memory<br/>Scale]
+    end
+
+    subgraph T2["🟡 Tier 2: Niche Competitors"]
+        CLINE[Cline/Aider<br/>Autonomous agents]
+        CONTINUE[Continue.dev<br/>Open source IDE]
+    end
+
+    subgraph T3["🟢 Tier 3: Indirect"]
+        CURSOR_RULES[.cursorrules<br/>Manual approach]
+        PROMPT[Prompt libraries<br/>No learning]
+    end
+
+    ALEX[✨ ALEX<br/>Transparent Memory You Own]
+
+    T1 --> |"Compete on<br/>TRANSPARENCY"| ALEX
+    T2 --> |"Compete on<br/>STRUCTURE"| ALEX
+    T3 --> |"Compete on<br/>AUTOMATION"| ALEX
+
+    style ALEX fill:#4caf50,color:#fff
+    style T1 fill:#ffcdd2
+    style T2 fill:#fff9c4
+    style T3 fill:#c8e6c9
+```
+
 ### The Playing Field
 
 Alex competes in the **AI-assisted development tools** space, specifically targeting developers who want their AI to remember context across sessions.
@@ -344,10 +396,10 @@ Use this template when losing a potential user to a competitor:
 ```markdown
 ## Lost Opportunity Analysis
 
-**Date:** 
-**Lost to:** 
-**Where (channel):** 
-**Their stated reason:** 
+**Date:**
+**Lost to:**
+**Where (channel):**
+**Their stated reason:**
 
 ### Analysis
 - Was this a winnable opportunity?

@@ -9,6 +9,44 @@
 
 > **"I remember—and you can see exactly what I remember, edit it, and take it with you."**
 
+### Visual: LinkedIn Engagement Funnel
+
+```mermaid
+flowchart TD
+    subgraph AWARENESS["🔍 Awareness"]
+        SCROLL[Developer Scrolling Feed]
+        HOOK[Hook: Problem Statement]
+    end
+
+    subgraph INTEREST["💡 Interest"]
+        STORY[Story: Fabio's Journey]
+        DEMO[Visual: Quick Demo GIF]
+    end
+
+    subgraph DESIRE["🎯 Desire"]
+        PROOF[Social Proof: User Comments]
+        DIFF[Differentiator: Transparent Memory]
+    end
+
+    subgraph ACTION["✅ Action"]
+        CTA[CTA: Try It Free]
+        LINK[Link to Marketplace]
+    end
+
+    SCROLL --> HOOK
+    HOOK --> STORY
+    STORY --> DEMO
+    DEMO --> PROOF
+    PROOF --> DIFF
+    DIFF --> CTA
+    CTA --> LINK
+
+    style AWARENESS fill:#ffebee
+    style INTEREST fill:#fff3e0
+    style DESIRE fill:#e8f5e9
+    style ACTION fill:#e3f2fd
+```
+
 ### The Honest Position
 
 Yes, ChatGPT and Copilot now have memory. Here's why Alex is still different:

@@ -9,6 +9,46 @@
 
 > **"I remember—and you can see exactly what I remember, edit it, and take it with you."**
 
+### Visual: Video Hook Structure
+
+```mermaid
+flowchart LR
+    subgraph HOOK["🎣 Hook (0-5 sec)"]
+        OBJ[State the Objection]
+        PAIN[Show the Pain]
+    end
+
+    subgraph REVEAL["💡 Reveal (5-15 sec)"]
+        DIFF[The Difference]
+        SHOW[Quick Visual Demo]
+    end
+
+    subgraph DELIVER["📦 Deliver (15-60 sec)"]
+        HOW[How It Works]
+        PROOF[Show the Files]
+    end
+
+    subgraph CTA["✅ CTA (Last 5 sec)"]
+        TRY[Try It Free]
+        SUB[Subscribe]
+    end
+
+    HOOK --> REVEAL --> DELIVER --> CTA
+
+    style HOOK fill:#ffcdd2
+    style REVEAL fill:#fff9c4
+    style DELIVER fill:#c8e6c9
+    style CTA fill:#bbdefb
+```
+
+**Example Script Flow:**
+```
+HOOK: "But ChatGPT has memory now too..."
+REVEAL: "Can you SEE what it remembers? Can you EDIT it?"
+DELIVER: "Watch—here's my memory. It's just markdown."
+CTA: "Link in description. It's free."
+```
+
 ### The Honest Position
 
 Yes, ChatGPT and Copilot now have memory. Here's why Alex is still different:
@@ -71,19 +111,53 @@ Yes, ChatGPT and Copilot now have memory. Here's why Alex is still different:
 
 ### Production Pipeline
 
+```mermaid
+gantt
+    title Weekly Video Production Cycle
+    dateFormat  YYYY-MM-DD
+    section Week 1
+    Write scripts/docs     :a1, 2026-01-20, 1d
+    Record screen demos    :a2, after a1, 1d
+    AI content (NotebookLM):a3, after a2, 1d
+    Edit in Descript       :a4, after a3, 1d
+    Thumbnails + schedule  :a5, after a4, 1d
+    section Week 2
+    Upload main video      :b1, 2026-01-27, 1d
+    Generate Shorts        :b2, after b1, 1d
+    Post Short #1          :b3, after b2, 1d
+    Post Short #2          :b4, after b3, 1d
+    Post Short #3          :b5, after b4, 1d
 ```
-Week 1: Content Creation
-├── Monday: Write scripts/gather docs
-├── Tuesday: Record screen demos
-├── Wednesday: Generate AI content (NotebookLM, Gamma)
-├── Thursday: Edit in Descript
-└── Friday: Create thumbnails, schedule uploads
 
-Week 2: Distribution
-├── Monday: Upload main video
-├── Tuesday: Generate Shorts with Opus Clip
-├── Wednesday-Friday: Post Shorts (1/day)
-└── Weekend: Engage with comments
+### Visual: Content Multiplication Flow
+
+```mermaid
+flowchart TD
+    DOC[📄 One Document<br/>README or Feature Doc]
+    
+    DOC --> GAMMA[🎨 Gamma<br/>Slides + Animation]
+    DOC --> NOTEBOOK[🎙️ NotebookLM<br/>AI Podcast Audio]
+    DOC --> SCRIPT[📝 Script Extract<br/>Key talking points]
+    
+    GAMMA --> FULLVID[🎬 Full Video<br/>10-15 minutes]
+    NOTEBOOK --> PODCAST[🎧 Podcast Clip<br/>Audio content]
+    SCRIPT --> SCREEN[🖥️ Screen Recording<br/>OBS demo]
+    
+    SCREEN --> FULLVID
+    
+    FULLVID --> OPUS[✂️ Opus Clip]
+    
+    OPUS --> SHORT1[📱 Short #1<br/>Hook moment]
+    OPUS --> SHORT2[📱 Short #2<br/>Demo highlight]
+    OPUS --> SHORT3[📱 Short #3<br/>Problem/Solution]
+    
+    PODCAST --> AUDIOGRAM[🎵 Audiogram<br/>For LinkedIn]
+    
+    style DOC fill:#e3f2fd
+    style FULLVID fill:#c8e6c9
+    style SHORT1 fill:#fff9c4
+    style SHORT2 fill:#fff9c4
+    style SHORT3 fill:#fff9c4
 ```
 
 ---
