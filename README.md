@@ -36,7 +36,7 @@ python release.py --bump patch
 
 One command does everything:
 
-```bash
+```bbash
 python release.py --bump patch
 ```
 
@@ -212,6 +212,54 @@ Instead of storing .vsix files in git:
 - The .vsix is attached as a downloadable asset
 - Release notes are extracted from CHANGELOG.md
 - Full history preserved without bloating repositories
+
+
+## Key Workflow Notes
+
+### Tested Release Process (v2.0.1)
+
+The full release was tested and works as follows:
+
+1. **Run from scripts directory**: `cd scripts`
+2. **Execute release**: `python release.py --bump patch`
+3. **Workflow executes**:
+   - Checks prerequisites (node, npm, vsce, git, gh, PAT)
+   - Clones/updates extension repo to `extension-build/`
+   - Bumps version and pushes changes (`--auto-push`)
+   - Builds and packages `.vsix`
+   - Publishes to VS Code Marketplace
+   - Creates GitHub Release with `.vsix` attached
+
+### Windows Compatibility
+
+Scripts are Windows-compatible with these considerations:
+
+- **npm/vsce calls**: Use `.cmd` extension (`npm.cmd`, `npx.cmd`) for subprocess calls
+- **File encoding**: All file operations use UTF-8 encoding explicitly
+- **Path handling**: Uses `pathlib.Path` for cross-platform paths
+- **Shell commands**: Subprocess calls work in both PowerShell and cmd
+
+### Workflow Order (Important)
+
+The release workflow ensures proper sequencing:
+
+1. `version.py --auto-push` bumps AND pushes before publish
+2. `publish.py` fetches fresh from origin (gets the pushed version)
+3. This prevents the "reset wiping local changes" issue
+
+### Dry Run Mode
+
+Always test with `--dry-run` first:
+
+`bash
+python release.py --bump patch --dry-run
+`
+
+Dry run will:
+- ✅ Check all prerequisites
+- ✅ Show what version would be bumped
+- ✅ Skip actual publishing and GitHub release creation
+- ✅ Not modify any files or push any changes
 
 ## Related
 
