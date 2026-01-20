@@ -10,6 +10,10 @@ __pycache__/
 venv/
 .venv/
 
+# Build artifacts
+extension-build/
+*.vsix
+
 # IDE
 .vscode/
 .idea/
